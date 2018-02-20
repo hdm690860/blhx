@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+	.wikimain
+		.wikimainbox.clearfix
+			.hr10
+			.signpagebox
+				.panel.panel-default
+					.panel-heading 
+						h3 权限修改
+					.panel-body
+					form(method="POST", action="/user/chanage")
+						.modal-body
+							.form-group
+								label(for="signname")
+									h4
+										strong 用户名
+								input#signupName.form-control(type="text", name="user[name]", value="#{user.name}", readonly)
+								input#userid.form-control(type="hidden", name="user[id]", value="#{user._id}")
+								label#warningmessage(for="signupame") 
+							.form-group
+								label(for="signupame")
+									h4
+										strong 密码
+								input#signupPassword.form-control(type="text",name="user[password]", value="#{user.password}", readonly)
+								label#warningpassage(for="signname")
+							.form-group
+								label(for="signupame")
+									h4
+										strong 权限
+								input#Password_again.form-control(type="text",name="user[role]", value="#{user.role}")
+								label#passaword_a(for="signname")
+						.modal-footer
+							button.btn.btn-default(type="reset", data-dismiss="modal") 重置
+							button.btn.btn-danger(type="submit") 修改
+	include ../includes/footer

@@ -1,0 +1,150 @@
+extends ../layout
+
+block content
+	.wiki
+		.wikibox
+			.leftarea
+				img(src="../../public/images/wiki/wiki_title.png", alt="碧蓝wiki", width="185", class="wikititle")
+				h4.titledetail 图鉴 数据 详情
+	.wikimain
+		.wikimainbox.clearfix
+			.pathnav
+				ol.breadcrumb
+					li
+						a(href="/") 首页
+					li
+						a(href="/wiki") wiki
+					li.active 详情
+			.detailbox.clearfix
+				.deleftarea
+					.imgbox
+						img(src="#{jian.fullpic}", alt="", width="100%")
+				.derightarea
+					.area_one
+						.detailtitle
+							h5 获得途径
+						.detaildata
+							table(cellspacing="0", cellpadding="0")
+								tr
+									td(style="width:25%") 建造
+									td #{jian.build}
+								tr
+									td 掉落
+									td #{jian.drop}
+					.area_two
+						.detailtitle
+							h5 属性资料
+						.detaildata
+							table(cellspacing="0", cellpadding="0")
+								tr
+									td
+										b 编号
+									td
+										b 船名
+									td
+										b 稀有度
+									td
+										b 类型
+									td
+										b CV
+									td
+										b 画师
+								tr
+									td #{jian.number}
+									td #{jian.name}
+									if jian.rarity == 'bai'
+										td 白色
+									else if jian.rarity == 'lan'
+										td 蓝色
+									else if jian.rarity == 'zi'
+										td 紫色
+									else if jian.rarity == 'jin'
+										td 金色
+									else
+										td
+									td #{jian.style}
+									td #{jian.CV}
+									td #{jian.painter}
+								tr
+									td(colspan="6" style="color:red")
+										b 属性数据
+								tr
+									td
+										b 耐久
+									td
+										b 装甲
+									td
+										b 填装
+									td
+										b 炮击
+									td
+										b 雷击
+									td
+										b 机动
+								tr
+									td #{jian.durable}
+									td #{jian.armor}
+									td #{jian.prime}
+									td #{jian.shell}
+									td #{jian.lighnting}
+									td #{jian.motorized}
+								tr
+									td
+										b 防空
+									td
+										b 航空
+									td
+										b 消耗
+									td
+										b 
+									td
+										b 
+									td
+										b 
+								tr
+									td #{jian.antiaircraft}
+									td #{jian.airline}
+									td #{jian.consume}
+									td 
+									td 
+									td 
+					.area_the
+						.detailtitle
+							h5 技能效果
+						.detaildata
+							table(cellspacing="0", cellpadding="0")
+								each skill in jian.skill
+									tr
+										td(style="width:25%") #{skill.name}
+										td #{skill.main}
+			.comment
+				h2 评论
+				form.commentbox.clearfix#comment(method="POST", action="/comment")
+					if user
+						textarea.form-control.commenttext(rows="8", name="comment[content]")
+						input.form-control#userid(type="hidden", value="#{user._id}" name="comment[user]")
+						input.form-control#jianid(type="hidden", value="#{jian._id}" name="comment[jian]")
+						button.btn.btn-success.pull-right#reply 发表评论
+					else
+						textarea.form-control.commenttext(rows="8", name="comment[content]", placeholder="登录后可以发表评论", disabled)
+						button.btn.btn-success.pull-right#reply(disabled) 发表评论
+				ul.comment-list#comment-list
+					each comment in comments
+						li
+							h3.username #{comment.user.name}
+							p.text-muted.commentcontent #{comment.content}
+							em.time 时间：#{moment(comment.meta.updateAt).format('YYYY-MM-DD')}
+					if comments && comments.length>0
+						ul.pager
+							-	for	(var i=0;i<totalpage;i++)	{
+								-	if (currentPage ==(i+1)){
+									li
+										a.active(href="") #{currentPage}
+								-	}
+								-	else {
+										li
+											a(href="/detail/#{jian._id}?q=#{i}") #{i+1}
+								-	}
+							-	}
+		include ../includes/footer
+	script(src='../public/js/reply.js')

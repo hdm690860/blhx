@@ -1,0 +1,713 @@
+@charset "UTF-8";
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+img {
+  border: none;
+}
+img {
+  display: block;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+ul,
+ol {
+  list-style: none;
+}
+input {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: "SimSun", "宋体";
+}
+input::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+select,
+input {
+  vertical-align: middle;
+}
+select,
+input,
+textarea {
+  font-size: 12px;
+  margin: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea {
+  outline-style: none;
+  -webkit-appearance: none;
+}
+textarea {
+  resize: none;
+}
+input,
+textarea {
+  background: none;
+  border: none;
+}
+table {
+  border-collapse: collapse;
+}
+body {
+  color: #333;
+  font: 12px/20px "SimSun", "宋体", "Arial Narrow", HELVETICA;
+  background: #fff;
+}
+a {
+  color: #666;
+  text-decoration: none;
+}
+a:visited {
+  color: #666;
+}
+a:hover,
+a:active,
+a:focus {
+  color: #ff8400;
+  text-decoration: underline;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.header {
+  width: 100%;
+  height: 0.5rem;
+  -webkit-box-shadow: 0px 0px 5px #cccccc;
+  -moz-box-shadow: 0px 0px 5px #cccccc;
+  box-shadow: 0px 0px 5px #cccccc;
+  font: 0.14rem/0.5rem '微软雅黑';
+}
+.headerbox,
+.mainpicbox,
+.mainstorybox {
+  width: 11.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.nav li {
+  float: left;
+  display: inline;
+  margin-left: 0.28rem;
+}
+.nav li .bilbil_icon {
+  background: url('../images/bilbil_icon.png') left no-repeat;
+  width: 0.16rem;
+  height: 0.14rem;
+  background-size: 80% auto;
+  display: inline-block;
+  position: relative;
+  top: 0.02rem;
+  padding-right: 0.06rem;
+}
+.logo {
+  position: absolute;
+  left: 50%;
+  margin-left: -1.03rem;
+  top: 0.2rem;
+  width: 2.06rem;
+  height: 0.93rem;
+}
+.logo img {
+  width: 100%;
+}
+.rightarea {
+  float: right;
+  display: inline;
+}
+.rightarea .user li {
+  float: left;
+  display: inline;
+  margin: 0 0.07rem;
+}
+.mainpic {
+  width: 100%;
+  background: url(../images/mainpic_bg_1.png) center top no-repeat;
+  height: 10.8rem;
+  background-size: 100%;
+}
+.mainpicbox {
+  font-family: '微软雅黑';
+}
+.mainpicbox .m_picleftarea {
+  position: relative;
+  z-index: 10;
+}
+.mainpicbox .title {
+  width: 6.18rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.2rem;
+}
+.mainpicbox .title img {
+  width: 6.18rem;
+}
+.mainpicbox .download {
+  margin-top: 0.7rem;
+}
+.mainpicbox .twocode,
+.mainpicbox .phonedown {
+  text-align: center;
+  float: left;
+  display: inline;
+  font: 0.16rem/0.24rem '微软雅黑';
+}
+.mainpicbox .twocodebox {
+  width: 0.93rem;
+  height: 0.93rem;
+  border: 1px solid #BAE2F8;
+  padding: 0.04rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background: #fff;
+}
+.mainpicbox .twocodebox img {
+  width: 100%;
+}
+.mainpicbox .phonedown {
+  margin-left: 0.14rem;
+}
+.mainpicbox .phonedown .appledl,
+.mainpicbox .phonedown .androiddl {
+  margin-bottom: 0.07rem;
+  background-color: #000;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 1.78rem;
+  height: 0.54rem;
+}
+.mainpicbox .phonedown .appledl a,
+.mainpicbox .phonedown .androiddl a {
+  color: #fff;
+  line-height: 0.54rem;
+}
+.mainpicbox .phonedown .appledl a:hover,
+.mainpicbox .phonedown .androiddl a:hover {
+  text-decoration: none;
+  color: red;
+}
+.mainpicbox .phonedown .appledl .apple_icon,
+.mainpicbox .phonedown .androiddl .apple_icon,
+.mainpicbox .phonedown .appledl .androiddl_icon,
+.mainpicbox .phonedown .androiddl .androiddl_icon {
+  position: relative;
+  top: 0.07rem;
+  margin-right: 0.08rem;
+}
+.mainpicbox .notice {
+  background-color: #fff;
+  margin-top: 0.16rem;
+  width: 2.84rem;
+  height: 2.94rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.5);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fffffff',endColorstr='#7fffffff');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fffffff',endColorstr='#7fffffff');
+  padding: 0.18rem 0.22rem;
+  overflow: hidden;
+}
+.mainpicbox .notice h3 {
+  font: 20/100rem;
+}
+.mainpicbox .notice a {
+  font: 0.12rem/0.18rem "微软雅黑";
+}
+.mainpicbox .notice a:hover {
+  text-decoration: none;
+  color: #00A1D6;
+}
+.mainpicbox .notice .update {
+  font: .10rem Arial;
+}
+.mainpicbox .notice .noticecontent {
+  font: 0.12rem/0.18rem "微软雅黑";
+}
+.mainpicbox .notice li {
+  padding-bottom: 0.08rem;
+  padding-top: 0.12rem;
+  border-bottom: 1px dashed #000;
+}
+.mainpicbox .notice .new_icon {
+  margin-left: 0.1rem;
+}
+.mainpicbox .m_picrightarea {
+  position: relative;
+  z-index: 10;
+  top: -0.5rem;
+  float: right;
+  display: inline;
+}
+.mainpicbox .m_picrightarea li {
+  width: 2.88rem;
+  border: 1px solid #D2D4D5;
+  margin-bottom: 0.11rem;
+}
+.mainpicbox .m_picrightarea li img {
+  width: 100%;
+}
+.mainpicbox .nibo,
+.mainpicbox .jiahe,
+.mainpicbox .biaoqiang {
+  position: absolute;
+  left: 50%;
+}
+.mainpicbox .nibo img,
+.mainpicbox .jiahe img,
+.mainpicbox .biaoqiang img {
+  width: 100%;
+}
+.mainpicbox .nibo {
+  width: 5.77rem;
+  height: 9rem;
+  top: 4.08rem;
+  z-index: 5;
+  margin-left: -2.47rem;
+}
+.mainpicbox .jiahe {
+  width: 8.42rem;
+  height: 8.42rem;
+  top: 3.19rem;
+  z-index: 3;
+  margin-left: -6.31rem;
+}
+.mainpicbox .biaoqiang {
+  width: 5.35rem;
+  height: 5.35rem;
+  top: 3.38rem;
+  z-index: 4;
+  margin-left: -0.3rem;
+}
+.blvideo {
+  width: 5.8rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 3.28rem;
+  background-color: #000;
+  position: relative;
+  z-index: 15;
+  padding: 0.16rem 0;
+  margin-bottom: 0.94rem;
+}
+.mainstory {
+  background: url(../images/story_bg.png) center 0.22rem no-repeat;
+  background-size: 100%;
+  padding-bottom: 2rem;
+}
+.mainstorybox {
+  position: relative;
+  text-align: center;
+  font: 0.18rem/0.34rem "微软雅黑";
+}
+.mainstorybox .title {
+  width: 5.52rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1.06rem;
+  margin-bottom: 0.24rem;
+}
+.mainstorybox .title img {
+  width: 100%;
+}
+.mainstorybox .storytext {
+  margin-bottom: 30px;
+}
+.mainstorybox span {
+  color: #6d9ef0;
+}
+.mainstorybox .blhy {
+  width: 0.62rem;
+  height: 1.88rem;
+  position: absolute;
+  right: 0;
+  top: 5.2rem;
+}
+.mainstorybox .blhy img {
+  width: 100%;
+}
+.bannerbox {
+  width: 11.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 8.4rem;
+}
+.bannerbox img {
+  width: 100%;
+}
+.bannerbox #banner_blhx .carousel-control {
+  background-image: none;
+}
+.gallerybox {
+  width: 11.6rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.gallerybox .title {
+  width: 3.6rem;
+  height: 0.53rem;
+  margin: 0.8rem 0 0.25rem 0.14rem;
+}
+.gallerybox .title img {
+  width: 100%;
+}
+.gallerybox .leftline {
+  float: left;
+  display: inline;
+  background: url(../images/gallery_lline.png) left top no-repeat;
+  background-size: 100%;
+  width: 0.1rem;
+  height: 1.9rem;
+  margin-left: 0.28rem;
+  margin-right: 0.2rem;
+}
+.gallerybox .mainpicshow,
+.gallerybox .leftline,
+.gallerybox .rightlilne {
+  float: left;
+  display: inline;
+}
+.gallerybox .gallerypic {
+  width: 10.17rem;
+  font-size: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.gallerybox .gallerypic li {
+  float: left;
+  display: inline;
+  padding: 0;
+  font-size: 0;
+  width: 2.87rem;
+  height: 1.81rem;
+  background-color: #E3E3E3;
+  margin: 0 0.26rem 0.3rem 0.26rem;
+}
+.gallerybox .gallerypic li img {
+  width: 100%;
+}
+.gallerybox .rightlilne {
+  width: 0.1rem;
+  height: 1.9rem;
+  background: url(../images/gallery_rline.png) left top no-repeat;
+  background-size: 100%;
+  margin-left: 0.22rem;
+  margin-top: 1.68rem;
+}
+.gallerybox .footerlogo {
+  width: 3.54rem;
+  height: 0.75rem;
+  float: right;
+  display: inline;
+  margin-top: -0.16rem;
+}
+.gallerybox .footerlogo img {
+  width: 100%;
+}
+.imgshowbox {
+  overflow: hidden;
+  border: none!important;
+}
+.imgshowbox .imgclose_btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.footer {
+  background: url(../images/footer_bg.png) center top no-repeat;
+  width: 100%;
+  overflow: hidden;
+  height: 4.47rem;
+  background-size: 100%;
+  margin-top: -0.3rem;
+  background-size: contain;
+  background-position: center;
+}
+.footerbox {
+  width: 11.6rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1.92rem;
+}
+.footerbox .footcharacter {
+  width: 1.04rem;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1.12rem;
+}
+.footerbox .footcharacter img {
+  width: 100%;
+}
+.footerbox .footertext {
+  text-align: center;
+  padding-top: 0.33rem;
+}
+.footerbox .text {
+  width: 6.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.2rem;
+}
+.footerbox .text li {
+  float: left;
+  display: inline;
+  padding: 0 0.17rem;
+}
+.footerbox .text li a {
+  font: 0.14rem/0.14rem "微软雅黑";
+  font-weight: bold;
+}
+.footerbox p {
+  font: 0.14rem/0.24rem "微软雅黑";
+  color: #7d7d7d;
+}
+.footerbox .beian {
+  padding-bottom: 0.14rem;
+}
+.gotop {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  position: fixed;
+  left: 50%;
+  margin-left: 5.8rem;
+  bottom: 10px;
+  color: #333;
+  z-index: 100;
+  background-color: rgba(255,255,255,0.5);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fffffff',endColorstr='#7fffffff');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fffffff',endColorstr='#7fffffff');
+  display: none;
+}
+.gotop:hover {
+  background-color: rgba(51,51,51,0.1);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#19333333',endColorstr='#19333333');
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#19333333',endColorstr='#19333333');
+}
+.gotop span {
+  line-height: 50px;
+  font-size: 18px;
+}
+.apple_icon {
+  background: url(../images/apple_icon.png) no-repeat;
+  width: 0.25rem;
+  height: 0.3rem;
+  background-size: 100%;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.androiddl_icon {
+  background: url(../images/andirod_icon.png) no-repeat;
+  width: 0.28rem;
+  height: 0.33rem;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  background-size: 100%;
+}
+.new_icon {
+  background: url(../images/new_icon.png) no-repeat;
+  width: 0.28rem;
+  height: 0.1rem;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  background-size: 100%;
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+}
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+}
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20%, 0);
+    transform: translate3d(0, 20%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20%, 0);
+    transform: translate3d(0, 20%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+}

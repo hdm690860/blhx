@@ -1,0 +1,436 @@
+@charset "UTF-8";
+/*
+    * Busy 收集 整理
+ */
+/*雅虎（YUI 3）reset*/
+/*Normalize.css*/
+a {
+  color: #000 !important;
+}
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img {
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+img {
+  border: none;
+}
+img {
+  display: block;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+ul,
+ol {
+  list-style: none;
+}
+input {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: "SimSun", "宋体";
+}
+input::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+select,
+input {
+  vertical-align: middle;
+}
+select,
+input,
+textarea {
+  font-size: 12px;
+  margin: 0;
+}
+input[type="text"],
+input[type="password"],
+textarea {
+  outline-style: none;
+  -webkit-appearance: none;
+}
+textarea {
+  resize: none;
+}
+input,
+textarea {
+  background: none;
+  border: none;
+}
+table {
+  border-collapse: collapse;
+}
+body {
+  color: #333;
+  font: 12px/20px "SimSun", "宋体", "Arial Narrow", HELVETICA;
+  background: #fff;
+}
+a {
+  color: #666;
+  text-decoration: none;
+}
+a:visited {
+  color: #666;
+}
+a:hover,
+a:active,
+a:focus {
+  color: #ff8400;
+  text-decoration: underline;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.header {
+  width: 100%;
+  height: 50px;
+  -webkit-box-shadow: 0px 0px 5px #cccccc;
+  -moz-box-shadow: 0px 0px 5px #cccccc;
+  box-shadow: 0px 0px 5px #cccccc;
+  font: 14px/50px '微软雅黑';
+  position: relative;
+}
+.headerbox {
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.nav li {
+  float: left;
+  display: inline;
+  margin-left: 28px;
+}
+.nav li .bilbil_icon {
+  background: url('../../public/images/bilbil_icon.png') left no-repeat;
+  width: 16px;
+  height: 14px;
+  background-size: 80% auto;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  padding-right: 6px;
+}
+.logo {
+  position: absolute;
+  left: 50%;
+  margin-left: -103px;
+  top: 20px;
+  width: 206px;
+  height: 93px;
+}
+.logo img {
+  width: 100%;
+}
+.rightarea {
+  float: right;
+  display: inline;
+}
+.rightarea .user li {
+  float: left;
+  display: inline;
+  margin: 0 7px !important;
+}
+.wiki {
+  background: url('../images/wiki/wiki_bg.png') no-repeat;
+  background-size: cover;
+}
+.wiki .wikibox {
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 220px;
+  padding-top: 100px;
+}
+.wiki .wikibox .titledetail {
+  color: #fff;
+  font-weight: normal;
+  font: 16px "微软雅黑";
+  float: left;
+  display: inline;
+  padding-left: 24px;
+  line-height: 58px;
+}
+.wiki .leftarea img {
+  float: left;
+  display: inline;
+  margin-top: 4px;
+}
+.wiki .rightarea {
+  float: right;
+  display: inline;
+  width: 484px;
+}
+.wiki .rightarea .searchhg {
+  height: 36px!important;
+}
+.wiki .rightarea .btn-search {
+  background-color: #F01414;
+  font-size: 0;
+}
+.wikimain {
+  background-color: #F8FAFC;
+}
+.wikimain .wikimainbox {
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding: 0 24px;
+}
+.wikimain .classifytitle {
+  padding-top: 42px;
+}
+.wikimain .classifytitle h3 {
+  font: 30px/42px "微软雅黑";
+  font-weight: bold;
+}
+.wikimain .classifytitle .wikinavbg {
+  background: url('../images/wiki/classify_titleicon.png') left top no-repeat;
+  width: 308px;
+  height: 10px;
+  background-size: 100%;
+}
+.wikimain .classifytitle p {
+  font: 12px/34px "微软雅黑";
+  color: #9C9C9C;
+}
+.wikimain .classifytitle .charcterlist {
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  float: left;
+  display: inline;
+  text-align: center;
+}
+.wikimain .classifytitle .charcterlist .biankuang {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wikimain .classifytitle .charcterlist .charctername {
+  padding-top: 12px;
+  display: inline-block;
+}
+.wikifooter {
+  background: url('../images/wiki/wikifooter_bg.jpg') center top no-repeat;
+  width: 100%;
+  height: 184px;
+  background-size: cover;
+}
+.wikifooter .wikifooterbox {
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+.wikifooter .wikifooterbox .footertext {
+  text-align: center;
+  padding-top: 33px;
+}
+.wikifooter .wikifooterbox .text {
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.wikifooter .wikifooterbox .text li {
+  float: left;
+  display: inline;
+  padding: 0 17px;
+}
+.wikifooter .wikifooterbox .text li a {
+  font: 14px/14px "微软雅黑";
+  font-weight: bold;
+}
+.wikifooter .wikifooterbox p {
+  font: 14px/24px "微软雅黑";
+  color: #7d7d7d;
+}
+.pathnav {
+  padding-top: 36px;
+}
+.breadcrumb {
+  background-color: #fff!important;
+}
+.deleftarea {
+  float: left;
+  display: inline;
+  width: 316px;
+  height: 670px;
+}
+.derightarea {
+  float: left;
+  display: inline;
+  margin-left: 50px;
+}
+.derightarea table {
+  font: 14px/36px "微软雅黑";
+  width: 100%;
+}
+.derightarea td {
+  text-align: center;
+  padding: 0 12px;
+  border: 1px solid #000;
+}
+.detailtitle {
+  height: 28px;
+  border-left: 5px solid #33CCCC;
+  padding-left: 8px;
+}
+.detailtitle h5 {
+  font: 22px/28px "微软雅黑";
+  line-height: 28px;
+  font-weight: bold;
+}
+.detaildata {
+  width: 688px;
+  margin: 15px 0 15px 55px;
+}
+.comment h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  border-bottom: 1px solid #E7E7E7;
+  padding: 10px 0;
+  color: #33CCCC;
+  margin-bottom: 20px;
+}
+.comment .commentbox {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #E7E7E7;
+  padding-bottom: 20px;
+}
+.comment .commenttext {
+  margin-bottom: 25px;
+}
+.comment .comment-list {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.comment .comment-list li {
+  padding: 24px 0 16px 24px;
+  border-bottom: 1px solid #E7E7E7;
+}
+.comment .comment-list .username {
+  margin: 15px 0;
+}
+.comment .comment-list .time {
+  color: #CBCBCB;
+  margin: 15px 0;
+  display: inline-block;
+  font-size: 12px;
+}
+.comment .comment-list .pager li .active {
+  background-color: #33CCCC;
+  color: #fff!important;
+}
+.comment .comment-list .pager li {
+  padding: 0;
+  border-bottom: none;
+}
+.hr10 {
+  height: 100px;
+}
+.detailbox {
+  padding-bottom: 10px;
+}
+.detailbox input {
+  border: none;
+  box-shadow: none;
+  text-align: center;
+}
+.detailbox input:focus {
+  box-shadow: none;
+}
+.submit button {
+  margin-left: 10px;
+}
+.ajaxup {
+  margin-top: 5px;
+}
+.warningup {
+  color: red;
+  text-indent: 10px;
+  line-height: 34px;
+  padding-left: 15px;
+  position: relative;
+  top: 2px;
+}
+.imgbox {
+  width: 316px;
+  height: 610px;
+  overflow: hidden;
+}
+.list {
+  padding-bottom: 20px;
+}
+.list table {
+  width: 100%;
+}
+.list th {
+  text-align: center;
+  padding: 15px 12px;
+  border: 1px solid #E6E6E6;
+  border-bottom: 2px solid #E6E6E6;
+  font-weight: bold;
+}
+.list tbody tr:hover {
+  background-color: #F4F4F4;
+}
+.list td {
+  text-align: center;
+  padding: 0 12px;
+  border: 1px solid #E6E6E6;
+}
+.signpagebox {
+  width: 500px;
+  margin: auto auto;
+}
+#searchbox .keyword {
+  margin-bottom: 20px;
+}
+.nofound {
+  width: 350px;
+  margin: 40px auto;
+  text-align: center;
+}
+.nofound img {
+  width: 100%;
+}

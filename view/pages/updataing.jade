@@ -1,0 +1,160 @@
+extends ../layout
+
+block content
+	.wikimain
+		.wikimainbox.clearfix
+			.hr10
+			.detailbox.clearfix
+				.deleftarea
+					form#savepic(method="POST", action="/savepic", enctype="multipart/form-data")
+						.imgbox
+							img(src="#{jian.fullpic}", alt="", width="100%", id="upfinishpic")
+						.form-group
+							label(for="upfile_big") 全身上传
+							input.form-control#uploadpic(type="file", name="uploadpic")
+							button.btn.btn-default.ajaxup 上传
+							span.warningup 
+				form#uploadjian(method="POST", action="/wiki/updata", enctype="multipart/form-data")
+					.derightarea
+						.area_one
+							.detailtitle
+								h5 获得途径
+							.detaildata
+								input#fullpic(type="hidden", name="jian[fullpic]" value="#{jian.fullpic}")
+								input#jian_id(type="hidden", name="jian[id]" value="#{jian._id}")
+								table(cellspacing="0", cellpadding="0")
+									tr
+										td(style="width:25%") 建造
+										td 
+											input.form-control(type="text", placeholder="点击输入", name="jian[build]", value="#{jian.build}")
+									tr
+										td 掉落
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[drop]", value="#{jian.drop}")
+						.area_two
+							.detailtitle
+								h5 属性资料
+							.detaildata
+								table(cellspacing="0", cellpadding="0")
+									tr
+										td
+											b 编号
+										td
+											b 船名
+										td
+											b 稀有度
+										td
+											b 类型
+										td
+											b CV
+										td
+											b 画师
+									tr
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[number]", value="#{jian.number}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[name]", value="#{jian.name}")
+										td
+											select.form-control#rarity(name="jian[rarity]", data-value="#{jian.rarity}")
+												option(value="bai") 白色
+												option(value="lan") 蓝色
+												option(value="zi") 紫色
+												option(value='jin') 金色
+										td
+											select.form-control#style(name="jian[style]", data-value="#{jian.style}")
+												option(value="驱逐") 驱逐
+												option(value="轻巡") 轻巡
+												option(value="重巡") 重巡
+												option(value="轻母") 轻母
+												option(value="航母") 航母
+												option(value="战列") 战列
+												option(value="战巡") 战巡
+												option(value="重炮") 重炮
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[CV]", value="#{jian.CV}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[painter]", value="#{jian.painter}")
+									tr
+										td
+											b 耐久
+										td
+											b 装甲
+										td
+											b 填装
+										td
+											b 炮击
+										td
+											b 雷击
+										td
+											b 机动
+									tr
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[durable]", value="#{jian.durable}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[armor]", value="#{jian.armor}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[prime]", value="#{jian.prime}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[shell]", value="#{jian.shell}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[lighnting]", value="#{jian.lighnting}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[motorized]", value="#{jian.motorized}")
+									tr
+										td
+											b 防空
+										td
+											b 航空
+										td
+											b 消耗
+										td
+											b 
+										td
+											b 
+										td
+											b 
+									tr
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[antiaircraft]", value="#{jian.antiaircraft}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[airline]", value="#{jian.airline}")
+										td
+											input.form-control(type="text", placeholder="点击输入", name="jian[consume]", value="#{jian.consume}")
+										td 
+										td 
+										td 
+						.area_the
+							.detailtitle
+								h5 技能效果
+							.detaildata
+								table(cellspacing="0", cellpadding="0")
+										tr
+											td(style="width:25%")
+												input.form-control(type="text", placeholder="点击输入技能名称", name="jian[skillname1]", value="#{jian.skill[0].name}")
+											td
+												input.form-control(type="text", placeholder="点击输入技能详细内容", name="jian[skillmain1]", value="#{jian.skill[0].main}")
+										tr
+											td
+												input.form-control(type="text", placeholder="点击输入技能名称", name="jian[skillname2]", value="#{jian.skill[1].name}")
+											td
+												input.form-control(type="text", placeholder="点击输入技能详细内容", name="jian[skillmain2]", value="#{jian.skill[1].main}")
+										tr
+											td
+												input.form-control(type="text", placeholder="点击输入技能名称", name="jian[skillname3]", value="#{jian.skill[2].name}")
+											td
+												input.form-control(type="text", placeholder="点击输入技能详细内容", name="jian[skillmain3]", value="#{jian.skill[2].main}")
+										tr
+											td
+												input.form-control(type="text", placeholder="点击输入技能名称", name="jian[skillname4]", value="#{jian.skill[3].name}")
+											td
+												input.form-control(type="text", placeholder="点击输入技能详细内容", name="jian[skillmain4]", value="#{jian.skill[3].main}")
+						.form-group
+							label(for="upfile_big") 头像上传(100x100)
+							input.form-control#touxiangup(type="file", name="touxiangup")
+							input.form-control#upfile_big(type="hidden", name="jian[touxiang]", value="#{jian.touxiang}")
+						.submit.pull-right
+							button.btn.btn-danger(type="submit") 提交
+							button.btn.btn-default(type="reset") 重置
+		include ../includes/footer
+		script(src="../public/js/picup.js")
+		script(src="../public/js/selected.js")

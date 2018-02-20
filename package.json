@@ -1,0 +1,36 @@
+{
+  "name": "bilanhangxiang",
+  "version": "0.0.1",
+  "description": "碧蓝航线官网设计练习",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "碧蓝航线",
+    "wiki"
+  ],
+  "author": "huangdongming",
+  "license": "ISC",
+  "devDependencies": {
+    "connect-mongo": "^2.0.1",
+    "connect-multiparty": "^2.1.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "grunt": "^1.0.2",
+    "grunt-contrib-watch": "^1.0.0",
+    "moment": "^2.20.1",
+    "mongoose": "^5.0.5",
+    "serve-static": "^1.13.2"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-nodemon": "^0.4.2",
+    "jade": "^1.11.0",
+    "underscore": "^1.8.3"
+  }
+}

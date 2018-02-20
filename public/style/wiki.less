@@ -1,0 +1,340 @@
+@charset"UTF-8";
+
+@import 'less/z.less';
+@import 'less/reset.less';
+@import 'less/css3.less';
+@import 'less/_variable.less';
+
+@wiki_width:1160px;
+a{
+	color:#000 !important;
+}
+
+.reset-sina();
+.clearfix{
+	.clearfix();
+}
+
+
+//头部
+.header{
+	width:100%;
+	height:50px;
+	.box-shadow();
+	font:14px/50px '微软雅黑';
+	    position: relative;
+
+}
+.headerbox{
+	.bc-d(@wiki_width);
+	position:relative;
+}
+
+//头部导航栏样式
+.nav{
+	li{
+		.fl();
+		margin-left:28px;
+		.bilbil_icon{
+			background: url('../../public/images/bilbil_icon.png') left  no-repeat;
+			width:16px;
+			height:14px;
+			background-size: 80% auto;
+			display:inline-block;
+			position:relative;
+			top:2px;
+			padding-right: 6px;
+		}
+	}
+}
+.logo{
+	position:absolute;
+	left:50%;
+	margin-left:-103px;
+	top:20px;
+	width:206px;
+	height:93px;
+	img{
+		width:100%;
+	}
+}
+.rightarea{
+	.fr();
+	.user li{
+		.fl();
+		margin:0 7px !important;
+	}
+}
+.wiki{
+	background:url('../images/wiki/wiki_bg.png') no-repeat;
+	background-size: cover;
+	.wikibox{
+		.bc-d(1160px);
+		height:220px;
+		padding-top:100px;
+		.titledetail{
+			color:#fff;
+			font-weight: normal;
+			font:16px "微软雅黑";
+			.fl();
+			padding-left: 24px;
+			line-height: 58px;
+		}
+	}
+	.leftarea{
+		img {
+			.fl();
+			margin-top: 4px;
+		}
+	}
+	.rightarea{
+		.fr();
+		width: 484px;
+		.searchhg{
+			height:36px!important;
+		}
+		.btn-search{
+			background-color:#F01414;
+			font-size: 0;
+			//margin-top: 1px;
+		}
+	}
+}
+//wiki主内容
+.wikimain{
+	background-color: #F8FAFC;
+	.wikimainbox{
+		.bc-d(@wiki_width);
+		background-color: #fff;
+		padding:0 24px;
+	}
+	.classifytitle{
+		padding-top: 42px;
+		h3{
+			font:30px/42px "微软雅黑";
+			font-weight: bold;
+		}
+		.wikinavbg{
+			background: url('../images/wiki/classify_titleicon.png') left top no-repeat;
+			width:308px;
+			height:10px;
+			background-size: 100%;
+		}
+		p{
+			font:12px/34px "微软雅黑";
+			color:#9C9C9C;
+		}
+		.charcterlist{
+			position: relative;
+			margin-right: 20px;
+			margin-bottom: 20px;
+			.fl();
+			text-align: center;
+			.biankuang{
+				position: absolute;
+				top:0;
+				left: 0;
+				
+			}
+			.charctername{
+				padding-top: 12px;
+				display: inline-block;
+			}
+		}
+	}
+}
+//页尾
+.wikifooter{
+	background: url('../images/wiki/wikifooter_bg.jpg') center top no-repeat;
+	width:100%;
+	height:184px;
+	background-size: cover;
+	.wikifooterbox{
+		.bc-d(@wiki_width);
+		padding-top:20px;
+		.footertext{
+			text-align: center;
+			padding-top:33px;
+		}
+		.text{
+			.bc-d(640px);
+			margin-bottom: 20px;
+			li{
+				.fl();
+				padding:0 17px;
+				a{
+					font:14px/14px "微软雅黑";
+					font-weight: bold;
+				}
+			}
+		}
+		p{
+			font:14px/24px "微软雅黑";
+			color:#7d7d7d;
+		}
+		.beian{
+			//padding-bottom: 14px;
+		}
+	}
+}
+
+//详情
+.pathnav{
+	padding-top: 36px;
+}
+.breadcrumb{
+	background-color: #fff!important;
+}
+
+.deleftarea{
+	.fl();
+	width:316px;
+	height:670px;
+}
+.derightarea{
+	.fl();
+	margin-left:50px;
+	table{
+		font:14px/36px "微软雅黑";
+		width:100%;
+		}
+	td{
+		text-align: center;
+		padding:0 12px;
+		border:1px solid #000;
+	}
+}
+.detailtitle{
+	height:28px;
+	border-left:5px solid #33CCCC;
+	padding-left: 8px;
+	h5{
+		font:22px/28px "微软雅黑";
+		line-height:28px;
+		font-weight:bold;
+	}
+}
+.detaildata{
+	width:688px;
+	margin:15px 0 15px 55px;
+}
+.comment{
+	h2{
+		//line-height: 30px;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size:26px;
+		border-bottom: 1px solid #E7E7E7;
+		padding: 10px 0;
+		color:#33CCCC;
+		margin-bottom: 20px;
+	}
+	.commentbox{
+		.bc-d(1000px);
+		border-bottom: 1px solid #E7E7E7;
+		padding-bottom: 20px;
+	}
+	.commenttext{
+		margin-bottom: 25px;
+	}
+	.comment-list{
+		.bc-d(1000px);
+		li{
+			padding: 24px 0 16px 24px;
+			border-bottom: 1px solid #E7E7E7;
+		}
+		.username{
+			margin:15px 0;
+		}
+		.time{
+			color:#CBCBCB;
+			margin:15px 0;
+			display: inline-block;
+			font-size: 12px;
+		}
+		.pager li .active{
+			background-color: #33CCCC;
+			color:#fff!important;
+		}
+		.pager li{
+			padding:0;
+			border-bottom:none;
+		}
+	}
+}
+
+//录入页面
+.hr10{
+	height:100px;
+}
+.detailbox{
+	padding-bottom: 10px;
+	input{
+		border:none;
+		box-shadow: none;
+		text-align: center;
+		&:focus{
+			box-shadow: none;
+		}
+	}
+}
+.submit{
+	button{
+		margin-left: 10px;
+	}
+}
+.ajaxup{
+	margin-top: 5px;
+}
+.warningup{
+	color:red;
+	text-indent: 10px;
+	line-height:34px;
+	padding-left:15px;
+	position: relative;
+	top:2px;
+}
+.imgbox{
+	width:316px;
+	height:610px;
+	overflow: hidden;
+}
+//列表页面
+.list{
+	padding-bottom: 20px;
+	table{
+		width:100%;
+	}
+	th{
+		text-align: center;
+		padding:15px 12px;
+		border:1px solid #E6E6E6;
+		border-bottom:2px solid #E6E6E6;
+		font-weight: bold;
+	}
+	tbody tr:hover{
+		background-color: #F4F4F4;
+	}
+	td{
+		text-align: center;
+		padding:0 12px;
+		border:1px solid #E6E6E6;
+	}
+	
+}
+//登录页面样式
+.signpagebox{
+	width: 500px;
+	margin:auto auto
+}
+//搜索页面
+#searchbox .keyword{
+	margin-bottom: 20px;
+}
+.nofound{
+	width:350px;
+	margin:40px auto;
+	text-align: center;
+	img{
+		width:100%;
+	}
+}

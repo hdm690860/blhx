@@ -1,0 +1,28 @@
+.header
+	.headerbox
+		.leftarea
+			ul.nav
+				li
+					a(href="/")
+						i.bilbil_icon
+						| 主页
+				li
+					a(href="/wiki") WIKI
+				//- li
+				//- 	a(href="") 文章
+		.logo
+			img(src="../public/images/logo.png", alt="logo")
+		.rightarea
+			ul.user
+				if user
+					li
+						a(href="") 欢迎您，#{user.name}
+					li |
+					li
+						a#logout(href="") 退出
+				else
+					li
+						a(href="#signin", data-toggle="modal", data-target="#signin") 登录
+					li |
+					li
+						a(href="#signup", data-toggle="modal", data-target="#signup") 注册	

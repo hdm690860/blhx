@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+	.wikimainbox.clearfix
+		.hr10
+		.row.list.text-center
+			h1(style="text-align:center;color:red;") #{content}
+			p(style="text-align:center;color:blue;")
+				a(href='/') 
+					em.miao 5
+					| &nbsp;
+					| 秒后跳转到登录页面&nbsp;&gt;&gt;
+	include ../includes/footer
+	script(src='../public/js/skip.js')

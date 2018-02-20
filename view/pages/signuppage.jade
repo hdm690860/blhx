@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+	.wikimain
+		.wikimainbox.clearfix
+			.hr10
+			.signpagebox
+				.panel.panel-default
+					.panel-heading 注册页面
+					.panel-body
+					form(method="POST", action="/user/signup")
+						.modal-body
+							.form-group
+								label(for="signname")
+									h4
+										strong 用户名
+								input#signupName.form-control(type="text", name="user[name]" placeholder="用户名")
+								label#warningmessage(for="signupame") 
+							.form-group
+								label(for="signupame")
+									h4
+										strong 密码
+								input#signupPassword.form-control(type="password",name="user[password]", placeholder="密码")
+								label#warningpassage(for="signname")
+							.form-group
+								label(for="signupame")
+									h4
+										strong 确认一遍密码
+								input#Password_again.form-control(type="password",name="user[password_a]", placeholder="密码")
+								label#passaword_a(for="signname")
+						.modal-footer
+							button.btn.btn-default(type="reset", data-dismiss="modal") 重置
+							button.btn.btn-success(type="submit") 注册
+	include ../includes/footer
+	script(src='../public/js/delete.js')

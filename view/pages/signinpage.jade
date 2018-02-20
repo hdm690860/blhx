@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+	.wikimain
+		.wikimainbox.clearfix
+			.hr10
+			.signpagebox
+				.panel.panel-default
+					.panel-heading 登录页面
+					.panel-body
+					form(method="POST", action="/user/signin")
+						.modal-body
+							.form-group
+								label(for="signname")
+									h4
+										strong 用户名
+								input#signinNamebig.form-control(type="text", name="user[name]" placeholder="用户名")
+								label#warningmessage(for="signinname") 
+							.form-group
+								label(for="signinname")
+									h4
+										strong 密码
+								input#signinPasswordbig.form-control(type="password",name="user[password]", placeholder="密码")
+								label#warningpassage(for="signname")
+						.modal-footer
+							button.btn.btn-default(type="button", data-dismiss="modal") 关闭
+							button.btn.btn-success(type="submit") 登录
+	include ../includes/footer

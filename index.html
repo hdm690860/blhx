@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="碧蓝航线，展示网站，wiki，数据，查询，舰娘">
+	<meta name="Keywords" content="碧蓝航线，展示网站，wiki，数据，查询，舰娘" />
+	<meta name="author" content="huangdongming,450861564@qq.com">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="renderer" content="webkit">
+	<title>碧蓝航线网页设计</title>
+	<link rel="stylesheet" href="./public/style/main.css">
+	 <link rel="stylesheet" href="public/libs/bootstrap/dist/css/bootstrap.min_1.css">
+	<script src="public/libs/jquery/dist/jquery.min.js"></script>
+	<script src="public/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<style>
+	.loading{
+		width: 100%;
+		height:100%;
+		background-color: #fff;
+		position: fixed;
+		z-index: 100; 
+		top:0;
+		left:0;
+	}
+	.loadprogress{
+		height:50px;
+		width:150px;
+		text-align: center;
+		line-height: 50px;
+		font-size: 34px;
+		position: absolute;
+		margin:auto;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+	}
+	.porline{
+		width:0%;
+		height:3px;
+		background-color: #6d9ef0;
+	}
+</style>
+	<script>
+		;(function(designWidth, maxWidth) {
+		var doc = document,
+		win = window,
+		docEl = doc.documentElement,
+		remStyle = document.createElement("style"),
+		tid;
+
+		function refreshRem() {
+			var width = docEl.getBoundingClientRect().width;
+			console.log(width)
+			if(width<designWidth){
+				width = designWidth
+			}
+			console.log(width)
+			maxWidth = maxWidth || 1920;
+			width>maxWidth && (width=maxWidth);
+			var rem = (100/(maxWidth / width));
+			remStyle.innerHTML = 'html{font-size:' + rem + 'px;}';
+		}
+
+		if (docEl.firstElementChild) {
+			docEl.firstElementChild.appendChild(remStyle);
+		} else {
+			var wrap = doc.createElement("div");
+			wrap.appendChild(remStyle);
+			doc.write(wrap.innerHTML);
+			wrap = null;
+		}
+		//要等 wiewport 设置好后才能执行 refreshRem，不然 refreshRem 会执行2次；
+		refreshRem();
+
+		win.addEventListener("resize", function() {
+			clearTimeout(tid); //防止执行两次
+			tid = setTimeout(refreshRem, 300);
+		}, false);
+
+		win.addEventListener("pageshow", function(e) {
+			if (e.persisted) { // 浏览器后退的时候重新计算
+				clearTimeout(tid);
+				tid = setTimeout(refreshRem, 300);
+			}
+		}, false);
+
+		if (doc.readyState === "complete") {
+			doc.body.style.fontSize = "16px";
+		} else {
+			doc.addEventListener("DOMContentLoaded", function(e) {
+				doc.body.style.fontSize = "16px";
+			}, false);
+		}
+	})(1160, 1920);
+	</script>
+	
+</head>
+<body>
+	<div class="header">
+		<div class="headerbox">
+			<div class="leftarea">
+				<ul class="nav">
+					<li><a href=""><i class="bilbil_icon"></i>主页</a></li>
+					<li><a href="/wiki">WIKI</a></li>
+					<!-- <li><a href="">文章</a></li> -->
+				</ul>
+			</div>
+			<div class="logo">
+					<img src="./public/images/logo.png" alt="logo">
+				</div>
+			<div class="rightarea">
+				<ul class="user">
+					<li><a href="#signin" data-toggle="modal" data-target="#signin">登录</a></li>
+					<li>|</li>
+					<li><a href="signup" data-toggle="modal" data-target="#signup">注册</a></li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	<div class="mainpic">
+		<div class="mainpicbox">
+			<div class="title"><img src="public/images/mainpictitle_b.png" alt="直到海平线的终焉"></div>
+			<div class="character">
+				<div class="nibo"><img src="public/images/nibo.png" alt="凌波"></div>
+				<div class="jiahe"><img src="public/images/jiahe.png" alt="加贺"></div>
+				<div class="biaoqiang"><img src="public/images/bianqiang.png" alt="标枪"></div>
+			</div>
+			<div class="m_picleftarea ">
+				<div class="download clearfix">
+					<div class="twocode">
+						<div class="twocodebox">
+							<img src="public/images/twocode.png" alt="二维码">
+						</div>
+						<p>扫码下载</p>
+					</div>
+					<div class="phonedown">
+						<div class="appledl">
+							<a href="">
+								<i class="apple_icon"></i>
+								<span class="dl_text">App&nbsp;Store下载</span>
+							</a>
+						</div>
+						<div class="androiddl">
+							<a href="">
+								<i class="androiddl_icon"></i>
+								<span class="dl_text">安卓版下载</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="notice">
+					<h3>官方公告</h3>
+					<ul class="noticebox">
+						<li><a href="">
+							<p >2018.02.08 <i class="new_icon"></i></p>
+							<p >维护公告(2月6日9时)</i></p>
+						</a></li>
+						<li><a href="">
+							<p>2018.02.08 <i class="new_icon"></i></p>
+							<p>2月6号[异次元的访客]特别行动</i></p>
+						</a></li>
+						<li><a href="">
+							<p>2018.02.08 <i class="new_icon"></i></p>
+							<p>12月19号[坠落之翼]特别行动开启</i></p>
+						</a></li>
+						<li><a href="">
+							<p>2018.12.08 <i class="new_icon"></i></p>
+							<p>维护公告(12月08日9时)</i></p>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="m_picrightarea">
+				<ul class="blaction">
+					<li><a href=""><img src="public/images/celan_01.jpg" alt="海王星联动活动"></a></li>
+					<li><a href=""><img src="public/images/celan_02.jpg" alt="春节活动"></a></li>
+					<li><a href=""><img src="public/images/celan_03.jpg" alt="斩仙实装"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="blvideo">
+		<video width="100%"  controls="controls" poster="public/images/moviepic.jpg">
+			  <source src="public/video/movie.mp4" type="video/mp4" />
+			  <!-- <source src="movie.ogg" type="video/ogg" /> -->
+			  <source src="public/video/movie.webm" type="video/webm" />
+			  <object data="movie.mp4" width="580" height="325">
+			    <embed src="public/video/movie.swf" width="580" height="325" />
+			  </object>
+		</video>
+	</div>
+	<div class="mainstory">
+		<div class="mainstorybox">
+			<div class="title"><img src="public/images/storytitle.png" alt=""></div>
+			<p class="storytext">这是一个表面被71%的海水覆盖着的蓝色星球，<br>人类在这片<span>碧蓝</span>色之中出生、成长、孕育和发展属于自己的文明。 然而，伴随着它们的</p>
+			<p class="storytext">然而，伴随着它们的，还有不断膨胀的野心和欲望。<br>表面风平浪静的世界格局之下，历史的<span>暗流涌动</span>。</p>
+			<p class="storytext">终于，未知的敌人在海洋中出现，面对敌方压倒性的战力，各个阵营却仍然各自为战，<br>
+最终换来的结果亦是惨痛的：人类失去了90%以上的海域控制权，科技和生活水平急速倒退。<br> 	
+人类对于海洋以及未知的敌人产生了深深的阴影，<br>
+并且将那些将他们拖入深海黑暗之中的怪物们称之为“塞壬”。</p>
+			<p class="storytext">数十年之后，各大阵营为了夺回曾经的辉煌，终于摒弃前嫌，联合创建了第三方军事组织“<span>碧蓝航线</span>”，<br>
+“碧蓝航线”的宗旨在于：集结并共享来自世界各大阵营的科技与资源，<br>
+建造出能够与“塞壬”抗衡的新锐舰队，夺回海域的控制权。</p>
+			<div class="blhy"><img src="public/images/blhyu_icon.png" alt="碧蓝海域"></div>
+		</div>
+	</div>
+	<div class="banner">
+		<div class="bannerbox">
+			<div id="banner_blhx" class="carousel slide" data-ride="carousel">
+ 				 <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#banner_blhx" data-slide-to="0" class="active"></li>
+			    <li data-target="#banner_blhx" data-slide-to="1"></li>
+			    <li data-target="#banner_blhx" data-slide-to="2"></li>
+			    <li data-target="#banner_blhx" data-slide-to="3"></li>
+			  </ol>
+
+			  	<!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="./public/images/banner_og.png" alt="欧根亲王">
+			    </div>
+			    <div class="item">
+			      <img src="./public/images/banner_qiye.png" alt="企业">
+			    </div>
+			  	<div class="item">
+			      <img src="./public/images/banner_yanzhan.png" alt="厌战">
+			    </div>
+			 	<div class="item">
+			      <img src="./public/images/banner_feilong.png" alt="飞龙">
+			    </div>
+			  </div>			 
+
+			  	<!-- Controls -->
+			  <a class="left carousel-control" href="#banner_blhx" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="right carousel-control" href="#banner_blhx" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
+		</div>
+	</div>
+	<div class="gallery">
+		<div class="gallerybox clearfix">
+			<div class="title"><img src="public/images/gallery_title.png" alt="插画鉴赏"></div>
+			<div class="content ">
+				<div class="leftline "></div>
+				<div class="mainpicshow ">
+					<ul class="gallerypic clearfix">
+						<li><a href="" data-toggle="modal" data-target="#gallery" data-imgshow="public/images/gallery_01big.jpg"><img src="public/images/gallery_01.jpg" alt="插画鉴赏01"></a></li>
+						<li><a href="" data-toggle="modal" data-target="#gallery" data-imgshow="public/images/gallery_02big.jpg"><img src="public/images/gallery_02.jpg" alt="插画鉴赏02"></a></li>
+						<li><a href="" data-toggle="modal" data-target="#gallery" data-imgshow="public/images/gallery_03big.jpg"><img src="public/images/gallery_03.jpg" alt="插画鉴赏03"></a></li>
+						<li><a href="" data-toggle="modal" data-target="#gallery" data-imgshow="public/images/gallery_04big.jpg"><img src="public/images/gallery_04.jpg" alt="插画鉴赏04"></a></li>
+						<li><a href="" data-toggle="modal" data-target="#gallery" data-imgshow="public/images/gallery_05big.jpg"><img src="public/images/gallery_05.jpg" alt="插画鉴赏05"></a></li>
+						<li><a href="" data-toggle="modal" data-target="#gallery" data-imgshow="public/images/gallery_06big.jpg"><img src="public/images/gallery_06.jpg" alt="插画鉴赏06"></a></li>
+					</ul>
+				</div>
+				<div class="rightlilne"></div>
+			</div>
+			<div class="footerlogo"><a href=""><img src="public/images/gallery_footer.png" alt=""></a></div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footerbox">
+			<div class="footcharacter"><img src="public/images/footcharacter.png" alt="碧蓝航线头像"></div>
+			<div class="footertext">
+				<ul class="text clearfix">
+					<li><a href="">游戏中心</a></li>
+					<li>|</li>
+					<li><a href="">账号安全</a></li>
+					<li>|</li>
+					<li><a href="">找回密码</a></li>
+					<li>|</li>
+					<li><a href="">家长监控</a></li>
+					<li>|</li>
+					<li><a href="">用户协议</a></li>
+				</ul>
+				<p class="gongsi">上海宽娱数码科技有限公司 | COPYRIGHT &copy; 2009-2018 BILIBILI ALL RIGHTS RESERVED.</p>
+				<p class="beian">互联网ICP备案:沪ICP备130021721号-3 沪ICP证:沪B2-20100043 | 沪网文[2013]0480-056号</p>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="signin" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+		    <form method="POST", action="/user/signin">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 >登录</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="form-group">
+		        	<label for="signname"><h4><strong>用户名</strong></h4></label>
+		        	<input type="text" id="signinName" class="form-control" name="user[name]" placeholder="用户名">
+		        	<label for="signname"><h4><strong>密码</strong></h4></label>
+		        	<input type="password" id="signinPassword" class="form-control" name="user[password]" placeholder="密码">
+		        	<input type="hidden" id="currenturl" class="form-control" name="user[currenturl]">
+		        </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="submit" class="btn btn-success">登录</button>
+		      </div>
+		    </form>
+	    </div>
+	  </div>
+	</div>
+	<div class="gotop">
+		<span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>	
+	</div>
+	<div class="modal fade" id="signup" role="dialog" >
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+		    <form method="POST", action="/user/signup">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 >注册</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="form-group">
+		        	<label for="signname"><h4><strong>用户名</strong></h4></label>
+		        	<input type="text" id="signupName" class="form-control" name="" placeholder="用户名">
+		        	<label for="signname"><h4><strong>密码</strong></h4></label>
+		        	<input type="text" id="signupPassword" class="form-control" name="" placeholder="密码">
+		        	<label for="signname"><h4><strong>重新输入密码</strong></h4></label>
+		        	<input type="text" id="signupPassword_1" class="form-control" name="" placeholder="密码">
+		        </div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="submit" class="btn btn-success">注册</button>
+		      </div>
+		    </form>
+	    </div>
+	  </div>
+	</div>
+	<div class="modal fade" id="gallery" role="dialog" >
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content imgshowbox">
+	    	<button type="button" class="close imgclose_btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		    <img src="" alt="" class="imgshowtarget">
+	    </div>
+	  </div>
+	</div>
+	<div class="loading">
+		<div class="loadprogress">0%</div>
+		<div class="porline"></div>
+	</div>
+	<script src="public/js/preload.js"></script>
+	<script src="public/js/sign.js"></script>
+	<script>
+		var imgs=[];
+		var $progress = $(".loadprogress");
+		var $porline = $(".porline");
+		var count = 0;
+		$("img").each(function(i){
+			var scr = $(this).attr('src')
+			imgs.push(scr)
+		});
+		$.preload(imgs,{
+			each:function(count){
+				var progress = parseInt((count+1)/imgs.length*100)
+				$progress.html(progress+'%')
+				$porline.animate({
+					width:progress+'%'
+				},10)
+			},
+			all:function(){
+				$('.loading').fadeOut();
+				$('.mainpicbox .title').addClass("animated " + "fadeInDown")
+				$('.jiahe').addClass("animated " + "fadeInLeft")
+				$('.biaoqiang').addClass("animated " + "fadeInRight")
+				$('.nibo').addClass("animated " + "fadeInUp")
+				$('.m_picleftarea').addClass("animated " + "fadeIn")
+				$('.m_picrightarea').addClass("animated " + "fadeIn")
+			}
+		})
+		$(document).ready(function() {
+			//模态框
+			$('#gallery').on('show.bs.modal', function (e) {
+	 		 	 console.log(e)
+	 		 	 var button = $(e.relatedTarget) 
+	  			 var imgSrc = button.data('imgshow')
+	  			 var modal = $(this)
+	  				modal.find('.imgshowtarget').attr("src",imgSrc)
+	  			
+				})
+			//gototop
+			$(window).scroll(function(){
+				var h=$(".mainpicbox .nibo").offset().top;
+				if($(window).scrollTop()>h+10){
+					$('.gotop').fadeIn();
+				}
+				else{$('.gotop').hide();}
+			})
+			$('.gotop').click(function(e){
+				 $("html,body").animate({scrollTop: '0px'}, 500)
+			})
+		})
+		// $('body').on('mousemove',function(e){
+		// 	var x = e.clientX;  
+  //       	var y = e.clientY;
+  //       	var w =$(window).width()
+  //       	var h =$('.nibo').offset().top;
+  //       	console.log(w,h)
+		// })
+		
+	</script>
+</body>
+</html>

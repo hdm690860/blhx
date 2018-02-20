@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+	.wiki
+		.wikibox
+			.leftarea
+				img(src="../../public/images/wiki/wiki_title.png", alt="碧蓝wiki", width="185", class="wikititle")
+				h4.titledetail 图鉴 数据 详情
+			.rightarea
+					form(method="GET", action="/search")
+						.input-group
+							input.form-control.searchhg(type="text", placeholder="搜索感兴趣的内容", name="search", value="#{search}")
+							span.input-group-btn
+								button.btn.btn-search(type="submit")
+									img(src="../../public/images/wiki/search_icon.png", width="19")
+	.wikimain
+		.wikimainbox
+			.classifytitle.clearfix#searchbox
+				h4.keyword 当前搜索关键字为：#{search}
+				each jian in jians
+					.charcterlist
+						a(href="/detail/#{jian._id}")
+							img(src="#{jian.touxiang}", width="80")
+							img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+						a.charctername(href="/detail/#{jian._id}")
+							| #{jian.name}
+	include ../includes/footer	

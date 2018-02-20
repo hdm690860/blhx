@@ -1,0 +1,136 @@
+extends ../layout
+
+block content
+	.wiki
+		.wikibox
+			.leftarea
+				img(src="../../public/images/wiki/wiki_title.png", alt="碧蓝wiki", width="185", class="wikititle")
+				h4.titledetail 图鉴 数据 详情
+	.wikimain
+		.wikimainbox.clearfix
+			.pathnav
+				ol.breadcrumb
+					li
+						a(href="/") 首页
+					li
+						a(href="wiki") wiki
+					li.active 详情
+			.detailbox.clearfix
+				.deleftarea
+					.imgbox
+						img(src="../../public/images/detail/full/biaoqiang.jpg", alt="", width="100%")
+				.derightarea
+					.area_one
+						.detailtitle
+							h5 获得途径
+						.detaildata
+							table(cellspacing="0", cellpadding="0")
+								tr
+									td(style="width:25%") 建造
+									td 轻型舰建造：00：27
+								tr
+									td 掉落
+									td 2-1
+					.area_two
+						.detailtitle
+							h5 属性资料
+						.detaildata
+							table(cellspacing="0", cellpadding="0")
+								tr
+									td
+										b 编号
+									td
+										b 船名
+									td
+										b 稀有度
+									td
+										b 类型
+									td
+										b CV
+									td
+										b 画师
+								tr
+									td 102
+									td 标枪
+									td 紫色
+									td 驱逐
+									td -
+									td -
+								tr
+									td(colspan="6" style="color:red")
+										b	属性数据
+								tr
+									td
+										b 耐久
+									td
+										b 装甲
+									td
+										b 填装
+									td
+										b 炮击
+									td
+										b 雷击
+									td
+										b 机动
+								tr
+									td 255/1243
+									td 轻型装甲
+									td 76/180
+									td 15/70
+									td 71/334
+									td 78/192
+								tr
+									td
+										b 防空
+									td
+										b 航空
+									td
+										b 消耗
+									td
+										b 
+									td
+										b 
+									td
+										b 
+								tr
+									td 30/139
+									td 0
+									td 2/10
+									td 
+									td 
+									td 
+					.area_the
+						.detailtitle
+							h5 技能效果
+						.detaildata
+							table(cellspacing="0", cellpadding="0")
+									tr
+										td(style="width:25%") 标枪突袭
+										td 炮击有5%概率发动，8秒内自身机动提升30%(60%)
+									tr
+										td 专属弹幕-标枪
+										td 每进行15(10)次攻击，触发专属弹幕-标枪
+			.comment
+				h2 评论
+				form.commentbox.clearfix
+					textarea.form-control.commenttext(rows="8")
+					button.btn.btn-success.pull-right 发表评论
+				ul.comment-list
+					li
+						h3.username 植物中
+						p.text-muted.commentcontent 首都师范的说法我是打飞机阿斯顿发送到放散阀爱上了对方加了盛大减肥了撒酒疯了撒酒疯首都师范的说法我是打飞机阿斯顿发送到放散阀爱上了对方加了盛大减肥了撒酒疯了撒酒疯
+						em.time 时间：2018-01-30
+					li
+						h3.username 植物中
+						p.text-muted.commentcontent 放散阀爱上了对方加了盛大减肥了撒酒疯了撒酒疯首都师范的说法我是打飞机阿斯顿发送到放散阀爱上了对方加了盛大减肥了撒酒疯了撒酒疯
+						em.time 时间：2018-01-30
+					ul.pager
+						li
+							a(href="") 1
+						li
+							a(href="") 2
+						li
+							a(href="") 3
+						li
+							a(href="") 4
+	include ../includes/footer

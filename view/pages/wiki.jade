@@ -1,0 +1,102 @@
+extends ../layout
+
+block content
+	.wiki
+		.wikibox
+			.leftarea
+				img(src="../../public/images/wiki/wiki_title.png", alt="碧蓝wiki", width="185", class="wikititle")
+				h4.titledetail 图鉴 数据 详情
+			.rightarea
+					form(method="GET", action="/search")
+						.input-group
+							input.form-control.searchhg(type="text", placeholder="搜索感兴趣的内容", name="search")
+							span.input-group-btn
+								button.btn.btn-search(type="submit")
+									img(src="../../public/images/wiki/search_icon.png", width="19")
+	.wikimain
+		.wikimainbox
+			.classifytitle.clearfix
+				h3 驱逐舰
+				.wikinavbg
+				p 驱逐舰是一种多用途的军舰，广泛的作战职能使驱逐舰成为现代海军舰中用途最广的舰艇
+				each jian in jians
+					if jian.style == '驱逐'
+						.charcterlist
+							a(href="/detail/#{jian._id}")
+								img(src="#{jian.touxiang}", width="80")
+								img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+							a.charctername(href="/detail/#{jian._id}")
+								| #{jian.name}
+			.classifytitle.clearfix
+				h3 轻巡
+				.wikinavbg
+				p 轻巡指轻巡洋舰，具有多种作战能力，主要在远洋作战的大型水面战舰。
+				each jian in jians
+					if jian.style == '轻巡'
+						.charcterlist
+							a(href="/detail/#{jian._id}")
+								img(src="#{jian.touxiang}", width="80")
+								img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+							a.charctername(href="/detail/#{jian._id}")
+								| #{jian.name}
+			.classifytitle.clearfix
+				h3 重巡
+				.wikinavbg
+				p 重巡舰，即重型巡洋舰（Heavy Cruiser）是巡洋舰的一种，一般指在排水量、装甲和火力方面强于轻巡洋舰但弱于战列舰的舰只。
+				each jian in jians
+					if jian.style == '重巡'
+						.charcterlist
+							a(href="/detail/#{jian._id}")
+								img(src="#{jian.touxiang}", width="80")
+								img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+							a.charctername(href="/detail/#{jian._id}")
+								| #{jian.name}
+			.classifytitle.clearfix
+				h3 战巡
+				.wikinavbg
+				p 战巡舰，削弱装甲剩下重量给动力系统，使其能获得较高的速度。
+				each jian in jians
+					if jian.style == '战巡'
+						.charcterlist
+							a(href="/detail/#{jian._id}")
+								img(src="#{jian.touxiang}", width="80")
+								img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+							a.charctername(href="/detail/#{jian._id}")
+								| #{jian.name}
+			.classifytitle.clearfix
+				h3 战列
+				.wikinavbg
+				p 战列舰是一种以大口径火炮攻击与厚重装甲防护为主的高吨位海军作战舰艇，是能执行远洋作战任务的大型水面军舰
+				each jian in jians
+					if jian.style == '战列'
+						.charcterlist
+							a(href="/detail/#{jian._id}")
+								img(src="#{jian.touxiang}", width="80")
+								img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+							a.charctername(href="/detail/#{jian._id}")
+								| #{jian.name}
+			.classifytitle.clearfix
+				h3 航母
+				.wikinavbg
+				p 航母是一种以舰载机为主要武器的大型水面舰艇，可以提供舰载机的起飞和降落。
+				each jian in jians
+					if jian.style == '航母'
+						.charcterlist
+							a(href="/detail/#{jian._id}")
+								img(src="#{jian.touxiang}", width="80")
+								img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+							a.charctername(href="/detail/#{jian._id}")
+								| #{jian.name}
+			.classifytitle.clearfix
+				h3 轻母
+				.wikinavbg
+				p 轻母，轻型航空母舰也称为轻型舰队母舰是比常规小的航母。它一般排水量是舰队舰母的一半或三分之一。
+				each jian in jians
+					if jian.style == '轻母'
+						.charcterlist
+							a(href="/detail/#{jian._id}")
+								img(src="#{jian.touxiang}", width="80")
+								img.biankuang(src="../../public/images/wiki/#{jian.rarity}.png", width="80")
+							a.charctername(href="/detail/#{jian._id}")
+								| #{jian.name}
+	include ../includes/footer	

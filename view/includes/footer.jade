@@ -1,0 +1,68 @@
+.wikifooter
+		.wikifooterbox
+			.footertext
+				ul.text.clearfix
+					li
+						a(href="") 游戏中心
+					li |
+					li
+						a(href="") 账号安全
+					li |
+					li
+						a(href="") 找回密码
+					li |
+					li
+						a(href="") 家长监控
+					li |
+					li
+						a(href="") 用户协议
+				p.gongsi 上海宽娱数码科技有限公司 | COPYRIGHT &copy; 2009-2018 BILIBILI ALL RIGHTS RESERVED.
+				p.beian 互联网ICP备案:沪ICP备130021721号-3 沪ICP证:沪B2-20100043 | 沪网文[2013]0480-056号
+.modal.fade#signin(role="dialog", aria-labelledby="myModalLabel")
+	.modal-dialog.modal-sm
+		.modal-content
+			form(method="POST", action="/user/signin")
+				.modal-header
+					button.close(type="button",  data-dismiss="modal", aria-label="Close")
+						span(aria-hidden="true") &times;
+					h4 登录
+				.modal-body
+					.form-group
+						label(for="signname")
+							h4
+								strong 用户名
+						input#signinName.form-control(type="text", name="user[name]" placeholder="用户名")
+						label(for="signname")
+							h4
+								strong 密码
+						input#signinPassword.form-control(type="password",name="user[password]", placeholder="密码")
+						input#currenturl.form-control(type="hidden",name="user[currenturl]", placeholder="密码")
+				.modal-footer
+					button.btn.btn-default(type="button", data-dismiss="modal") 关闭
+					button.btn.btn-success(type="submit") 登录
+.modal.fade#signup(role="dialog", aria-labelledby="myModalLabel")
+	.modal-dialog.modal-sm
+		.modal-content
+			form(method="POST", action="/user/signup")
+				.modal-header
+					button.close(type="button",  data-dismiss="modal", aria-label="Close")
+						span(aria-hidden="true") &times;
+					h4 注册
+				.modal-body
+					.form-group
+						label(for="signname")
+							h4
+								strong 用户名
+						input#signupName.form-control(type="text", name="user[name]" placeholder="用户名")
+						label(for="signname")
+							h4
+								strong 密码
+						input#signupPassword.form-control(type="password",name="user[password]", placeholder="密码")
+						label(for="signname")
+							h4
+								strong 确认一遍密码
+						input#signupPasswordonce.form-control(type="password",name="user[password_1]", placeholder="密码")
+				.modal-footer
+					button.btn.btn-default(type="button", data-dismiss="modal") 关闭
+					button.btn.btn-success(type="submit") 注册
+script(src="../public/js/usersession_del.js")
