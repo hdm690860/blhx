@@ -31,7 +31,7 @@
 * 添加图片异步上传和同步上传功能
 * 管理员可从后台查看所有的角色、用户、评论、等数据；
 ### 网站整体效果
-![](http://tc.ffsky.net/images/2018/02/20/0f5fe839232097215ec05124d00523ab.jpg)  
+![](http://tc.ffsky.net/images/2018/02/20/4ed51f7efe277ff318bc34cbf7b9ec44.jpg)  
 ![](http://tc.ffsky.net/images/2018/02/20/5f38afd1d87380b35f911fc59aacd527.jpg) 
 ![](http://tc.ffsky.net/images/2018/02/20/409e99377a3187edb07d01d912a10df9.jpg) 
 ![](http://tc.ffsky.net/images/2018/02/20/6b1b2dc2843789bc659f4f7ca4cc83b3.jpg) 
@@ -40,8 +40,8 @@
 ![](http://tc.ffsky.net/images/2018/02/20/7c3324eebba6e2ef2383cc45cd63023d.jpg) 
 ![](http://tc.ffsky.net/images/2018/02/20/0f28c0cef6e3cc239e813077e8aeb7e1.jpg) 
 #### 运行环境
-> $ npm install
-> $ grunt
+> $ npm install <br>
+> $ grunt <br>
 注意：因为需要连接本地数据库数据(localhost:27017/blhx)，本项目下载运行只能展示网站部分功能，后续会添加线上数据库或网站上线地址。。
 ``` bash
 ├─app
